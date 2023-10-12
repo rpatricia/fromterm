@@ -1,51 +1,59 @@
 <div class="fromtherm-container">
   
-    <!-- Foto ilustrando a Fromtherm -->
-    <section class="fromtherm-image-section">
-      <img src="https://via.placeholder.com/500" alt="Fromtherm - Família de Máquinas"> <!-- Imagem genérica -->
-      <p>Foto ilustrando a Fromtherm. Imagem genérica providenciada para ilustração.</p>
-    </section>
+  <!-- Foto ilustrando a Fromtherm -->
+  <section class="fromtherm-image-section">
+    <img [src]="getCurrentImage()" alt="Fromtherm - Família de Máquinas" (click)="changeImage()"> <!-- Imagem dinâmica -->
+    <p>Foto ilustrando a Fromtherm. Clique para mudar a imagem.</p>
+  </section>
+
+  <!-- Texto sobre a Fromtherm -->
+  <section class="fromtherm-text-section">
+    <h2>Sobre a Fromtherm</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+    <a href="https://www.fromtherm.com.br/sobre-nos" target="_blank">Saiba mais sobre nós</a>
+  </section>
+
+  <!-- Linha do tempo mostrando o crescimento da empresa -->
+<section *ngIf="showTimeline" class="timeline-section">
   
-    <!-- Texto sobre a Fromtherm -->
-    <section class="fromtherm-text-section">
-      <h2>Sobre a Fromtherm</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-      <a href="https://www.fromtherm.com.br/sobre-nos" target="_blank">Saiba mais sobre nós</a>
-    </section>
-  
-    <!-- Linha do tempo mostrando o crescimento da empresa -->
-    <section class="timeline-section">
-      <h2>Linha do Tempo</h2>
-      <div class="timeline-point">
-        <span class="year">2020</span>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
-      </div>
-      <!-- ... -->
-    </section>
-  
-    <!-- Fotos dos proprietários e colaboradores -->
-    <section class="owners-section">
-      <h2>Proprietários e Colaboradores</h2>
-      <div class="owner">
-        <img src="https://via.placeholder.com/150" alt="Abel"> <!-- Imagem genérica -->
-        <p>Abel</p>
-      </div>
-      <div class="owner">
-        <img src="https://via.placeholder.com/150" alt="Priscila"> <!-- Imagem genérica -->
-        <p>Priscila</p>
-      </div>
-      <!-- Adicionar imagens de outros colaboradores conforme necessário -->
-    </section>
-  
-    <!-- Mapa com regiões do Brasil -->
-    <section class="map-section">
-      <h2>Presença no Brasil</h2>
-      <img src="https://via.placeholder.com/500" alt="Mapa do Brasil"> <!-- Imagem genérica -->
-    </section>
-  
-    <!-- Gráfico do crescimento da empresa -->
-    <section class="growth-chart-section">
-      <h2>Crescimento da Empresa</h2>
-      <img src="https://via.placeholder.com/500" alt="Gráfico de Crescimento"> <!-- Imagem genérica -->
-    </section>
+  <div *ngFor="let event of timelineEvents" class="timeline-point">
+    <span class="year">{{ event.year }}</span>
+    <p>{{ event.event }}</p>
+  </div>
+</section>
+<button (click)="toggleTimeline()" class="btn btn-outline-primary mt-3 mb-3 d-flex align-items-center justify-content-center">
+  <i class="bi bi-calendar3"></i> Linha do Tempo
+</button>
+
+  <!-- Fotos dos proprietários e colaboradores -->
+  <section class="owners-section">
+    <h2>Proprietários e Colaboradores</h2>
+    <div class="owner">
+      <img src="https://via.placeholder.com/150" alt="Abel"> <!-- Imagem genérica -->
+      <p>Abel</p>
+    </div>
+    <div class="owner">
+      <img src="https://via.placeholder.com/150" alt="Priscila"> <!-- Imagem genérica -->
+      <p>Priscila</p>
+    </div>
+    <!-- Adicionar imagens de outros colaboradores conforme necessário -->
+  </section>
+
+  <!-- Mapa com regiões do Brasil -->
+  <section class="map-section">
+    <h2>Presença no Brasil</h2>
+    <img src="https://via.placeholder.com/500" alt="Mapa do Brasil"> <!-- Imagem genérica -->
+  </section>
+
+  <!-- Gráfico do crescimento da empresa -->
+  <section class="growth-chart-section">
+    <h2>Crescimento da Empresa</h2>
+    <img src="https://via.placeholder.com/500" alt="Gráfico de Crescimento"> <!-- Imagem genérica -->
+  </section>
+
+  <!-- Informação sobre o crescimento da empresa -->
+  <section class="growth-info-section">
+    <h2>Crescimento da Empresa</h2>
+    <p>Estamos no mercado há {{ yearsSinceFoundation }} anos!</p>
+  </section>
 </div>

@@ -1,5 +1,5 @@
 .fromtherm-container {
-    background-color: #000;  // Fundo preto
+    background-color: #000; // Fundo preto
     color: #B0B0B0; // Cinza claro
     text-align: center;
     padding: 20px;
@@ -18,8 +18,13 @@
         margin-bottom: 15px;
         border: 2px solid #007BFF;  // Borda azul
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra suave
-    }
+        transition: transform 0.3s; // Transição suave ao mudar a imagem
 
+        &:hover {
+            transform: scale(1.05); // Zoom ao passar o mouse
+        }
+    }
+  
     a {
         color: #007BFF; // Links em azul
         &:hover {
@@ -49,6 +54,37 @@
         p {
             margin-top: 10px;
         }
+    }
+
+    // Botão de alternância da linha do tempo
+    button {
+        background-color: #007BFF; // Azul
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i.bi {
+            margin-right: 5px; // Espaçamento entre o ícone e o texto
+        }
+
+        &:hover {
+            background-color: #0056b3; // Azul escuro ao passar o mouse
+        }
+    }
+
+    // Seção de informação sobre o crescimento
+    .growth-info-section {
+        background-color: #282828;  // Cinza escuro
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra suave
     }
 
     // Para telas menores (exemplo: mobile)
