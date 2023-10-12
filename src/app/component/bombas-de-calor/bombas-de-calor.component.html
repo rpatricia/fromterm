@@ -1,0 +1,29 @@
+<div class="bombas-container">
+    <!-- Banner com foto de todas as máquinas -->
+    <section class="banner-section">
+      <img src="https://via.placeholder.com/1600x400?text=Banner+Máquinas" alt="Todas as Máquinas">
+    </section>
+  
+    <!-- Categorias -->
+    <section class="categories-section">
+      <div *ngFor="let category of categories" class="category">
+        <h2 (click)="toggleMachines(category.id)">{{ category.name }}</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae.</p>
+        <div *ngIf="category.showMachines" class="machines">
+          <!-- Exemplo de máquina. No projeto real, você pode adicionar mais detalhes e dinamicidade -->
+          <div class="machine">
+            <img src="https://via.placeholder.com/200x200?text=Máquina" alt="Nome da Máquina">
+            <p>Lorem ipsum description</p>
+            <a href="#">Mais informações</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Simulador -->
+    <section class="simulator-section">
+      <h2>Simulador</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae.</p>
+      <!-- Conteúdo do simulador -->
+    </section>
+</div>

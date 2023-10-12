@@ -1,0 +1,89 @@
+.testimonial-carousel {
+    position: relative;
+    background-color: #131313;
+    padding: 40px;
+    max-width: 800px;
+    margin: 40px auto;
+    color: #b0b0b0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+    .carousel-inner {
+        position: relative;
+        border: 2px solid rgb(245, 31, 31);
+        border-radius: 15px;
+        padding: 20px;
+        background-color: #000;
+        text-align: center;
+
+        .balloon-tail {
+            position: absolute;
+            width: 30px;
+            height: 15px;
+            background-color: #000; // Mesma cor do fundo do .carousel-inner
+            z-index: 1; // Colocando na frente do conteúdo principal
+            bottom: -10px;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        }
+    
+        .balloon-tail.left {
+            left: 15%;
+        }
+    
+        .balloon-tail.right {
+            right: 15%;
+        }
+    }
+
+    h4 {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #b0b0b0;
+        padding-bottom: 10px;
+    }
+
+    p {
+        font-style: italic;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        line-height: 1.5;
+        color: rgb(245, 31, 31);
+    }
+
+    small {
+        font-size: 1rem;
+        color: #b0b0b0;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        z-index: 10;
+    }
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        filter: invert(1);
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        padding: 20px;
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        small {
+            font-size: 0.9rem;
+        }
+    }
+}

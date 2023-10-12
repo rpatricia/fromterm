@@ -1,0 +1,47 @@
+<div class="contact-container">
+    <h2>Formulário de Contato</h2>
+
+    <!-- Seletor de Assunto -->
+    <div class="mb-3">
+        <label for="subject-select" class="form-label">Assunto:</label>
+        <select class="form-control" id="subject-select" [(ngModel)]="selectedSubject" (change)="onSubjectChange()">
+            <option value="">Selecione um assunto</option>
+            <option value="sac">SAC</option>
+            <option value="trabalhe-conosco">Trabalhe Conosco</option>
+            <option value="seja-revenda">Seja uma Revenda</option>
+            <option value="assistencia-tecnica">Assistência Técnica</option>
+            <option value="telefones-uteis">Telefones Úteis</option>
+        </select>
+    </div>
+
+    <!-- Campos Comuns -->
+    <div *ngIf="selectedSubject !== 'telefones-uteis'">
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Nome" [(ngModel)]="name">
+        </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="email">
+        </div>
+    </div>
+
+    <!-- Campos Condicionalmente Mostrados -->
+    <div *ngIf="selectedSubject === 'sac' || selectedSubject === 'seja-revenda' || selectedSubject === 'assistencia-tecnica'" class="mb-3">
+        <textarea class="form-control" rows="4" placeholder="Mensagem" [(ngModel)]="message"></textarea>
+    </div>
+    <div *ngIf="selectedSubject === 'trabalhe-conosco'" class="mb-3">
+        <textarea class="form-control" rows="4" placeholder="Fale sobre você e sua experiência" [(ngModel)]="message"></textarea>
+    </div>
+    <div *ngIf="selectedSubject === 'assistencia-tecnica'" class="mb-3">
+        <textarea class="form-control" rows="4" placeholder="Descreva o problema técnico" [(ngModel)]="message"></textarea>
+    </div>
+    <div *ngIf="selectedSubject === 'telefones-uteis'" class="mb-3">
+        <p>Telefone SAC: (11) 1234-5678</p>
+        <p>Telefone Comercial: (11) 2345-6789</p>
+        <!-- Você pode adicionar mais números conforme necessário -->
+    </div>
+
+    <!-- Botão de Enviar -->
+    <div *ngIf="selectedSubject !== 'telefones-uteis'" class="mb-3">
+        <button class="btn btn-primary">Enviar</button>
+    </div>
+</div>

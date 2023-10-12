@@ -1,0 +1,25 @@
+<div class="representantes-container">
+    <h2>Para Lojistas</h2>
+    <p>Deseja revender as máquinas Fromtherm? Encontre o Representante mais próximo de você!</p>
+  
+    <!-- Seção para inserção do CEP -->
+    <section class="cep-section">
+      <label for="cep-input">Digite seu CEP:</label>
+      <input type="text" id="cep-input" [(ngModel)]="cep" placeholder="Ex: 12345-678">
+      <button (click)="searchByCep()">Buscar</button>
+    </section>
+  
+    <!-- Listagem de representantes próximos -->
+    <section class="representantes-list">
+      <div *ngIf="address" class="representante">
+        <h3>{{ address.logradouro }}, {{ address.bairro }}</h3>
+        <p>{{ address.localidade }} - {{ address.uf }}</p>
+      </div>
+    </section>
+  
+    <!-- Seção do mapa -->
+    <section class="map-section">
+      <h2>Mapa dos Representantes</h2>
+      <img src="https://via.placeholder.com/1600x400?text=Mapa+dos+Representantes" alt="Mapa mostrando os representantes">
+    </section>
+</div>

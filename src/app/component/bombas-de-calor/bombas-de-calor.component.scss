@@ -1,0 +1,76 @@
+.bombas-container {
+    background-color: #131313; 
+    color: #b0b0b0; 
+    padding: 20px;
+  
+    a {
+      color: #007BFF; 
+      &:hover {
+        color: #FF0000; 
+      }
+    }
+  
+    .banner-section {
+      width: 100%;
+      margin: 20px 0;
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+  
+    .categories-section {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+  
+      .category {
+        flex: 1;
+        margin: 20px;
+        text-align: center;
+        border: 1px solid #b0b0b0; 
+        padding: 15px;
+        border-radius: 10px;
+  
+        h2 {
+          margin-bottom: 10px;
+          color: #007BFF; 
+        }
+  
+        &:hover h2 {
+          color: #FF0000; 
+        }
+  
+        .machines {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .machine {
+            margin: 10px;
+            img {
+              max-width: 100%;
+              height: auto;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
+  
+    .simulator-section {
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.2); 
+      grid-column: span 2;
+    }
+  
+    @media (max-width: 768px) {
+      .categories-section {
+        flex-direction: column;
+      }
+    }
+}

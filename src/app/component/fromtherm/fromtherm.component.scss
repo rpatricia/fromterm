@@ -1,0 +1,60 @@
+.fromtherm-container {
+    background-color: #000;  // Fundo preto
+    color: #B0B0B0; // Cinza claro
+    text-align: center;
+    padding: 20px;
+
+    // Títulos
+    h2 {
+        color: #007BFF; // Azul
+        border-bottom: 2px solid #FF0000; // Vermelho
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    img {
+        max-width: 100%; // Para garantir que as imagens sejam responsivas
+        height: auto;
+        margin-bottom: 15px;
+        border: 2px solid #007BFF;  // Borda azul
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra suave
+    }
+
+    a {
+        color: #007BFF; // Links em azul
+        &:hover {
+            text-decoration: underline;
+            color: #FF0000; // Vermelho ao passar o mouse
+        }
+    }
+
+    .timeline-point {
+        background-color: #282828;  // Cinza escuro
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra suave
+
+        .year {
+            color: #FF0000;  // Vermelho
+            font-weight: bold;
+        }
+    }
+
+    .owner {
+        display: inline-block;
+        margin: 0 10px;
+        text-align: center;
+
+        p {
+            margin-top: 10px;
+        }
+    }
+
+    // Para telas menores (exemplo: mobile)
+    @media (max-width: 768px) {
+        .fromtherm-image-section, .fromtherm-text-section, .timeline-section, .owners-section, .map-section, .growth-chart-section {
+            margin-bottom: 20px;
+        }
+    }
+}
