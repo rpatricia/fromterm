@@ -13,7 +13,7 @@
     }
 
     img {
-        max-width: 100%; // Para garantir que as imagens sejam responsivas
+        max-width: 100%; // Garante que as imagens sejam responsivas
         height: auto;
         margin-bottom: 15px;
         border: 2px solid #007BFF;  // Borda azul
@@ -57,7 +57,7 @@
     }
 
     // Botão de alternância da linha do tempo
-    button {
+    button.btn {
         background-color: #007BFF; // Azul
         color: #fff;
         padding: 10px 15px;

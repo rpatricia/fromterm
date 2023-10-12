@@ -14,16 +14,16 @@
   </section>
 
   <!-- Linha do tempo mostrando o crescimento da empresa -->
-<section *ngIf="showTimeline" class="timeline-section">
-  
-  <div *ngFor="let event of timelineEvents" class="timeline-point">
-    <span class="year">{{ event.year }}</span>
-    <p>{{ event.event }}</p>
-  </div>
-</section>
-<button (click)="toggleTimeline()" class="btn btn-outline-primary mt-3 mb-3 d-flex align-items-center justify-content-center">
-  <i class="bi bi-calendar3"></i> Linha do Tempo
-</button>
+  <section *ngIf="showTimeline" class="timeline-section">
+    <h2>Linha do Tempo</h2>
+    <div *ngFor="let event of timelineEvents" class="timeline-point">
+      <span class="year">{{ event.year }}</span>
+      <p>{{ event.event }}</p>
+    </div>
+  </section>
+  <button (click)="toggleTimeline()" class="btn btn-outline-primary mt-3 mb-3 d-flex align-items-center justify-content-center">
+    <i class="bi bi-calendar3"></i> Linha do Tempo
+  </button>
 
   <!-- Fotos dos proprietários e colaboradores -->
   <section class="owners-section">
@@ -47,13 +47,14 @@
 
   <!-- Gráfico do crescimento da empresa -->
   <section class="growth-chart-section">
-    <h2>Crescimento da Empresa</h2>
-    <img src="https://via.placeholder.com/500" alt="Gráfico de Crescimento"> <!-- Imagem genérica -->
-  </section>
-
-  <!-- Informação sobre o crescimento da empresa -->
-  <section class="growth-info-section">
-    <h2>Crescimento da Empresa</h2>
+   
+    <highcharts-chart 
+      [Highcharts]="Highcharts" 
+      [options]="chartOptions" 
+      style="width: 100%; height: 400px; display: block;">
+    </highcharts-chart>
     <p>Estamos no mercado há {{ yearsSinceFoundation }} anos!</p>
   </section>
+   
+
 </div>

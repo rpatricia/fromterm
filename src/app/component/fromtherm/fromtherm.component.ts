@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-fromtherm',
@@ -20,6 +21,22 @@ export class FromthermComponent {
     { year: 2022, event: "Expansão para mercados internacionais." }
     // Adicione mais marcos conforme necessário
   ];
+
+  // Propriedades do gráfico
+  Highcharts: typeof Highcharts = Highcharts;
+  chartOptions: Highcharts.Options = {
+    title: {
+      text: 'Crescimento ao Longo dos Anos'
+    },
+    xAxis: {
+      categories: ['2020', '2021', '2022', '2023']
+    },
+    series: [{
+      type: 'line',
+      name: 'Crescimento da Empresa',
+      data: [50, 150, 300, 500]
+    }]
+  };
 
   toggleTimeline(): void {
     this.showTimeline = !this.showTimeline;
