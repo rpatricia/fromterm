@@ -13,13 +13,13 @@ export class FromthermComponent {
   yearsSinceFoundation: number = this.currentYear - this.foundationYear;
   imageList: string[] = ["https://via.placeholder.com/500", "https://via.placeholder.com/500/111", "https://via.placeholder.com/500/222"];
   currentImageIndex: number = 0;
+  showFullText: boolean = false;  // Controla a exibição do texto completo
 
   // Linha do tempo com marcos da empresa
   timelineEvents = [
     { year: 2020, event: "Fundação da Fromtherm." },
     { year: 2021, event: "Lançamento do primeiro produto principal." },
     { year: 2022, event: "Expansão para mercados internacionais." }
-    // Adicione mais marcos conforme necessário
   ];
 
   // Propriedades do gráfico
@@ -48,5 +48,9 @@ export class FromthermComponent {
 
   getCurrentImage(): string {
     return this.imageList[this.currentImageIndex];
+  }
+
+  toggleFullText(): void {
+    this.showFullText = !this.showFullText;
   }
 }

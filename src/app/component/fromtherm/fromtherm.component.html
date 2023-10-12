@@ -2,15 +2,22 @@
   
   <!-- Foto ilustrando a Fromtherm -->
   <section class="fromtherm-image-section">
-    <img [src]="getCurrentImage()" alt="Fromtherm - Família de Máquinas" (click)="changeImage()"> <!-- Imagem dinâmica -->
+    <img [src]="getCurrentImage()" alt="Fromtherm - Família de Máquinas" (click)="changeImage()">
     <p>Foto ilustrando a Fromtherm. Clique para mudar a imagem.</p>
   </section>
 
   <!-- Texto sobre a Fromtherm -->
   <section class="fromtherm-text-section">
     <h2>Sobre a Fromtherm</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-    <a href="https://www.fromtherm.com.br/sobre-nos" target="_blank">Saiba mais sobre nós</a>
+    <p>
+      A Fromtherm é uma empresa genuinamente brasileira que surgiu em 2004 no mercado de sistemas de aquecimento para piscinas e central de água quente.
+      <span *ngIf="showFullText">Contamos com uma equipe fortalecida de diretores, gestores e conceituados representantes, onde o respeito e o bom relacionamento fazem parte de todas as decisões. A empresa conta também com o apoio de seus colaboradores que compartilham de sua missão e política de qualidade.
+      A Fromtherm iniciou em Santa Catarina e, com confiança e referência, cresceu no mercado brasileiro, expandindo para todas as cinco regiões brasileiras. Em 2010, consolidou-se no mercado brasileiro como a única fabricante nacional exclusiva de bombas de calor.</span>
+    </p>
+    <button (click)="toggleFullText()" class="btn btn-outline-primary">
+      <i class="bi bi-book"></i> Quem somos
+    </button>
+   
   </section>
 
   <!-- Linha do tempo mostrando o crescimento da empresa -->
@@ -29,25 +36,23 @@
   <section class="owners-section">
     <h2>Proprietários e Colaboradores</h2>
     <div class="owner">
-      <img src="https://via.placeholder.com/150" alt="Abel"> <!-- Imagem genérica -->
+      <img src="https://via.placeholder.com/150" alt="Abel">
       <p>Abel</p>
     </div>
     <div class="owner">
-      <img src="https://via.placeholder.com/150" alt="Priscila"> <!-- Imagem genérica -->
+      <img src="https://via.placeholder.com/150" alt="Priscila">
       <p>Priscila</p>
     </div>
-    <!-- Adicionar imagens de outros colaboradores conforme necessário -->
   </section>
 
   <!-- Mapa com regiões do Brasil -->
   <section class="map-section">
     <h2>Presença no Brasil</h2>
-    <img src="https://via.placeholder.com/500" alt="Mapa do Brasil"> <!-- Imagem genérica -->
+    <img src="https://via.placeholder.com/500" alt="Mapa do Brasil">
   </section>
 
   <!-- Gráfico do crescimento da empresa -->
   <section class="growth-chart-section">
-   
     <highcharts-chart 
       [Highcharts]="Highcharts" 
       [options]="chartOptions" 
@@ -55,6 +60,4 @@
     </highcharts-chart>
     <p>Estamos no mercado há {{ yearsSinceFoundation }} anos!</p>
   </section>
-   
-
 </div>
