@@ -6,27 +6,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     h2 {
-        color: #007BFF; 
-        border-bottom: 2px solid #FA2B32; 
+        color: #007BFF;
         padding-bottom: 10px;
         margin-bottom: 20px;
     }
-
     img {
         max-width: 100%; 
         height: auto;
         margin-bottom: 15px;
-        border: 2px solid #007BFF;  
         box-shadow: 0 4px 8px rgba(0, 12, 135, 0.1); 
         transition: transform 0.3s; 
-
         &:hover {
             transform: scale(1.05); 
         }
     }
-
     a {
         color: #007BFF; 
         &:hover {
@@ -34,20 +28,17 @@
             color: #FA2B32; 
         }
     }
-
     .timeline-point {
         background-color: #062443;  
         padding: 10px;
         margin: 10px 0;
         border-radius: 5px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-
         .year {
             color: #FA2B32;  
             font-weight: bold;
         }
     }
-
     .owners-section {
         display: flex;  
         justify-content: center;  
@@ -55,11 +46,9 @@
         flex-wrap: wrap;  
         max-width: 500px; 
         margin: 0 auto; 
-    
         .owner {
             margin: 0 20px;  
         }
-    
         .owner-image-container {
             width: 100px;  
             height: 100px;
@@ -67,11 +56,9 @@
             overflow: hidden;  
             transition: transform 0.5s;  
             margin-bottom: 10px;  
-        
             &:hover {
                 transform: scale(1.1); 
             }
-        
             img {
                 width: 100%;  
                 height: auto;
@@ -79,7 +66,6 @@
             }
         }
     }
-
     button.btn {
         background-color: #007BFF; 
         color: #fff;
@@ -93,17 +79,14 @@
         align-items: center;
         font-size: 0.8rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        
         i.bi {
             margin-right: 4px;
         }
-    
         &:hover {
             background-color: #0056b3; 
             transform: scale(1.05);
         }
     }
-
     .expanded {
         display: block;
     }
@@ -114,59 +97,47 @@
             display: block;
         }
     }
-
     @media (max-width: 768px) {
         padding: 10px;
-        
         .fromtherm-image-section, .fromtherm-text-section, .timeline-section, .owners-section, .map-section, .growth-chart-section {
             margin-bottom: 20px;
         }
-
         h2 {
             font-size: 1.4rem; 
         }
-
         p, span {
             font-size: 0.9rem;
         }
-
         .timeline-point {
             font-size: 0.85rem;
         }
-
         .owners-section {
             .owner {
                 margin: 0 10px;
             }
-
             .owner-image-container {
                 width: 80px;
                 height: 80px;
             }
         }
-
         button.btn {
-            padding: 3px 6px;
-            font-size: 0.7rem;
+            padding: 1px 2px;
+            font-size: 0.4rem;
         }
     }
-
     @media (max-width: 480px) {
         h2 {
             font-size: 1.2rem;
         }
-
         .owners-section {
             .owner {
                 margin: 0 5px;
             }
-
             .owner-image-container {
                 width: 60px;
                 height: 60px;
             }
         }
-
         button.btn {
             padding: 2px 5px;
             font-size: 0.65rem;

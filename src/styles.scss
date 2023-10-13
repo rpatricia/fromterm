@@ -6,7 +6,7 @@
 /* Definindo fonte e fundo globalmente */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #000;
+    background-color: #062443;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -27,7 +27,7 @@ body {
 .dual-section {
     display: flex;
     justify-content: space-between;
-    border: 2px solid #fff; // Borda adicionada
+    // border: 2px solid #fff; // Borda adicionada
   
     > * {
       flex: 1;
