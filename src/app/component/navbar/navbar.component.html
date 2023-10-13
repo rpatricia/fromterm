@@ -1,15 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Meu Site</a>
-    <button class="navbar-toggler" type="button" (click)="toggleMenu()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div [class.collapse]="isMenuCollapsed" class="navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item" *ngFor="let link of navLinks">
-          <a class="nav-link" (click)="navigateToSection(link.id)">
-            <i [class]="link.icon"></i> {{ link.label }}
-          </a>
-        </li>
-      </ul>
-    </div>
+  <a class="navbar-brand" href="#">
+    <img src="assets/LOGO FROMTHERM.png" alt="Fromtherm Logo" class="navbar-logo">
+  </a>
+  <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [class.collapse]="isMenuCollapsed" class="navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngFor="let link of navLinks">
+        <a class="nav-link" (click)="navigateToSection(link.id)">
+          <i [class]="link.icon"></i> {{ link.label }}
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>

@@ -1,14 +1,17 @@
-// Arquivo: navbar.component.scss
-
-// Defina o fundo do navbar como cinza escuro
 .navbar {
-    background-color: #131313; // Cinza escuro
-    color: red; // Letras vermelhas
+    background-color: #131313;
+    color: red;
 
-    // Alinhar itens ao centro usando flex
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+
+        img.navbar-logo {
+            width: 150px; // Ajuste o tamanho conforme necessário
+            height: auto;
+            margin-right: 10px; // Espaço entre o logo e outros elementos, se houver
+        }
+    }
 
     .navbar-nav {
         display: flex;
@@ -16,27 +19,17 @@
         align-items: center;
         width: 100%;
 
-        // Quando o tamanho da tela for menor (mobile), empilhe os itens
         @media (max-width: 768px) {
             flex-direction: column;
         }
     }
 
-    // Quando o mouse passar sobre os links, eles se tornarão azul marinho
     .nav-link {
-        color: rgb(245, 31, 31); // Letras vermelhas
-        cursor: pointer; // Adicionado para mostrar o ícone da mãozinha
-        &:hover {
-            color: #001f3f; // Azul marinho ao passar o mouse
-        }
-    }
+        color: rgb(245, 31, 31);
+        cursor: pointer;
 
-    // Branding (caso você queira estilizar o nome da marca também)
-    .navbar-brand {
-        color: red; // Letras vermelhas
-        cursor: pointer; // Adicionado para mostrar o ícone da mãozinha
         &:hover {
-            color: #001f3f; // Azul marinho ao passar o mouse
+            color: #001f3f;
         }
     }
 }
