@@ -7,22 +7,26 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./fromtherm.component.scss']
 })
 export class FromthermComponent {
-  showTimeline: boolean = true; 
+  showTimeline: string = 'expanded';
+  showFullText: boolean = false;
+  showOwners: string = 'expanded';
+  showImageSection: string = 'expanded';
+  showTextSection: string = 'expanded';
+  showMapSection: string = 'expanded';
+  showChartSection: string = 'expanded';
   foundationYear: number = 2020;
   currentYear: number = new Date().getFullYear();
   yearsSinceFoundation: number = this.currentYear - this.foundationYear;
-  imageList: string[] = ["https://via.placeholder.com/500", "https://via.placeholder.com/500/111", "https://via.placeholder.com/500/222"];
+  imageList: string[] = ["https://picsum.photos/900/400", "https://picsum.photos/901/400", "https://picsum.photos/902/400"];
   currentImageIndex: number = 0;
-  showFullText: boolean = false;  // Controla a exibição do texto completo
+  lastClickedButton: string = '';  
 
-  // Linha do tempo com marcos da empresa
   timelineEvents = [
     { year: 2020, event: "Fundação da Fromtherm." },
     { year: 2021, event: "Lançamento do primeiro produto principal." },
     { year: 2022, event: "Expansão para mercados internacionais." }
   ];
 
-  // Propriedades do gráfico
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
     title: {
@@ -37,10 +41,31 @@ export class FromthermComponent {
       data: [50, 150, 300, 500]
     }]
   };
+  toggleSection(section: string): void {
+    switch (section) {
+      case 'image':
+        this.showImageSection = this.showImageSection === 'expanded' ? 'minimized' : 'expanded';
+        break;
+      case 'text':
+        this.showTextSection = this.showTextSection === 'expanded' ? 'minimized' : 'expanded';
+        break;
+      case 'timeline':
+        this.showTimeline = this.showTimeline === 'expanded' ? 'minimized' : 'expanded';
+        break;
+      case 'owners':
+        this.showOwners = this.showOwners === 'expanded' ? 'minimized' : 'expanded';
+        break;
+      case 'map':
+        this.showMapSection = this.showMapSection === 'expanded' ? 'minimized' : 'expanded';
+        break;
+      case 'chart':
+        this.showChartSection = this.showChartSection === 'expanded' ? 'minimized' : 'expanded';
+        break;
+      default:
+        break;
+    }
+}
 
-  toggleTimeline(): void {
-    this.showTimeline = !this.showTimeline;
-  }
 
   changeImage(): void {
     this.currentImageIndex = (this.currentImageIndex + 1) % this.imageList.length;
@@ -48,9 +73,5 @@ export class FromthermComponent {
 
   getCurrentImage(): string {
     return this.imageList[this.currentImageIndex];
-  }
-
-  toggleFullText(): void {
-    this.showFullText = !this.showFullText;
   }
 }
