@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h2> Onde encontrar? </h2>
+    <!-- Seção de Seleção -->
+    <section class="selection-section mb-4">
+        <label for="component-select" class="form-label">Escolha uma opção:</label>
+        <select id="component-select" class="form-select" [(ngModel)]="componentType">
+            <option value="ondeComprar">Onde Comprar</option>
+            <option value="representantes">Representantes</option>
+        </select>
+    </section>
+
+    <!-- Seção para inserção do CEP -->
+    <section class="cep-section mb-4">
+        <label for="cep-input" class="form-label">Digite seu CEP:</label>
+        <div class="input-group">
+            <input type="text" id="cep-input" class="form-control" [(ngModel)]="cep" placeholder="Ex: 12345-678">
+            <button (click)="searchByCep()" class="btn btn-primary">
+                <i class="bi bi-search"></i> Buscar
+            </button>
+        </div>
+    </section>
+
+    <!-- Carrega o componente baseado no tipo -->
+    <div *ngIf="componentType === 'ondeComprar'">
+        <app-onde-comprar [address]="address"></app-onde-comprar>
+    </div>
+    <div *ngIf="componentType === 'representantes'">
+        <app-representantes [address]="address"></app-representantes>
+    </div>
+</div>

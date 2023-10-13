@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Input } from '@angular/core';
+import { Address } from '../../models/address.interface';
 
 @Component({
   selector: 'app-representantes',
@@ -7,19 +7,5 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./representantes.component.scss']
 })
 export class RepresentantesComponent {
-  cep!: string;
-  address: any;
-
-  constructor(private http: HttpClient) {}
-
-  searchByCep(): void {
-    this.http.get(`https://viacep.com.br/ws/${this.cep}/json/`).subscribe(
-      data => {
-        this.address = data;
-      },
-      error => {
-        console.error('Erro ao buscar CEP:', error);
-      }
-    );
-  }
+  @Input() address!: Address | null;
 }

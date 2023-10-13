@@ -1,0 +1,30 @@
+.container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    max-width: 600px; // Estabelece uma largura máxima para o container
+    margin: 40px auto; // Centraliza o container na tela
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    color: #333; // Estabelece uma cor mais escura para o texto
+
+    .selection-section, .cep-section {
+        label {
+            font-weight: bold;
+        }
+        
+        select, input {
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            &:focus {
+                box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+            }
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+}

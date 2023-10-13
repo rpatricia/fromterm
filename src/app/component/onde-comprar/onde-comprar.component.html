@@ -1,34 +1,15 @@
-<div class="onde-comprar-container">
-    <!-- Título da seção -->
-    <h2>Onde Comprar</h2>
-  
-    <!-- Input para inserção do CEP -->
-    <section class="cep-section">
-      <label for="cep-input">Digite seu CEP para encontrar a revenda mais próxima:</label>
-      <input type="text" id="cep-input" [(ngModel)]="cep" placeholder="Ex: 12345-678">
-      <button (click)="searchByCep()">Buscar</button>
-    </section>
-  
-    <!-- Endereço retornado (exemplo de exibição) -->
-    <div *ngIf="address">
-      <h3>Endereço Retornado</h3>
-      <p><strong>Rua:</strong> {{ address.logradouro }}</p>
-      <p><strong>Bairro:</strong> {{ address.bairro }}</p>
-      <p><strong>Cidade:</strong> {{ address.localidade }}</p>
-      <p><strong>Estado:</strong> {{ address.uf }}</p>
-      <p><strong>CEP:</strong> {{ address.cep }}</p>
-      <p><strong>Complemento:</strong> {{ address.complemento }}</p>
-    </div>
+<div *ngIf="address">
+  <h3>Endereço Retornado</h3>
+  <p><strong>Rua:</strong> {{ address.logradouro }}</p>
+  <p><strong>Bairro:</strong> {{ address.bairro }}</p>
+  <p><strong>Cidade:</strong> {{ address.localidade }}</p>
+  <p><strong>Estado:</strong> {{ address.uf }}</p>
+  <p><strong>CEP:</strong> {{ address.cep }}</p>
+  <p><strong>Complemento:</strong> {{ address.complemento }}</p>
+</div>
 
-    <!-- Listagem das revendas próximas -->
-    <section class="revendas-list">
-      <!-- Exemplo de revenda -->
-      <div class="revenda">
-        <h3>Revenda mais proxima </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-      <!-- ... outros exemplos de revenda podem ser adicionados aqui -->
-    </section>
-  
-    
+<!-- Aqui você pode adicionar mais informações sobre a revenda ou outros detalhes relevantes -->
+<div class="revenda">
+  <h3>Revenda mais proxima</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 </div>

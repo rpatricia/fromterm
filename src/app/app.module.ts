@@ -20,6 +20,7 @@ import { ContatoComponent } from './component/contato/contato.component';
 import { TrabalheConoscoComponent } from './component/contato/trabalhe-conosco/trabalhe-conosco.component';
 import { SacComponent } from './component/contato/sac/sac.component';
 import { SejaUmaRevendaComponent } from './component/contato/seja-uma-revenda/seja-uma-revenda.component';
+import { CepSearchComponent } from './component/cep-search/cep-search.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SejaUmaRevendaComponent } from './component/contato/seja-uma-revenda/se
     ContatoComponent,
     TrabalheConoscoComponent,
     SacComponent,
-    SejaUmaRevendaComponent
+    SejaUmaRevendaComponent,
+    CepSearchComponent
   ],
   imports: [
     BrowserModule,
