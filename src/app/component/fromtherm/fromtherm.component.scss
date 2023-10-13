@@ -46,15 +46,39 @@
         }
     }
 
-    .owner {
-        display: inline-block;
-        margin: 0 10px;
-        text-align: center;
-
-        p {
-            margin-top: 10px;
+    .owners-section {
+        display: flex;  // Alinha horizontalmente
+        justify-content: center;  // Alinha ao centro horizontalmente
+        align-items: center; // Alinha ao centro verticalmente
+        flex-wrap: wrap;  // Permite que os itens se envolvam em telas menores
+        max-width: 500px; // Largura máxima da seção dos sócios
+        margin: 0 auto; // Centraliza a seção
+    
+        .owner {
+            margin: 0 20px;  // Espaçamento entre os sócios
+        }
+    
+    
+        .owner-image-container {
+            width: 100px;  // Define um tamanho inicial para a imagem do sócio
+            height: 100px;
+            border-radius: 50%;  // Torna a imagem circular
+            overflow: hidden;  // Mantém a imagem contida no contêiner
+            transition: transform 0.5s;  // Transição suave ao passar o mouse
+            margin-bottom: 10px;  // Espaçamento entre a imagem e o nome
+        
+            &:hover {
+                transform: scale(2.5);  // Aumenta o zoom da imagem ao passar o mouse
+            }
+        
+            img {
+                width: 100%;  // Garante que a imagem se ajuste ao tamanho do contêiner
+                height: auto;
+                transition: transform 0.5s;  // Transição suave ao passar o mouse
+            }
         }
     }
+    
 
     // Botão de alternância da linha do tempo
     button.btn {
