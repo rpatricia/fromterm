@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+<main class="container">
+  <div class="piscina">
+    <p class="d-inline-flex gap-1">
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+      >
+        Dados da Piscina
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <div class="input-group mb-2">
+          <span class="input-group-text" id="basic-addon1">Largura</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Largura da piscina (5m - 20m)"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="input-group mb-2">
+          <span class="input-group-text" id="basic-addon1">Comprimento</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Largura da piscina (5m - 20m)"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="input-group mb-2">
+          <span class="input-group-text" id="basic-addon1">Profundidade</span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Largura da piscina (5m - 20m)"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="input-group my-3">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Sua piscina é</label
+          >
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Escolha...</option>
+            <option value="1">Aberta</option>
+            <option value="2">Fechada</option>
+          </select>
+        </div>
+        <div class="input-group my-3">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Velocidade do vento</label
+          >
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Escolha...</option>
+            <option value="1">Nenhum</option>
+            <option value="2">Fraco</option>
+            <option value="2">Moderado</option>
+            <option value="2">Forte</option>
+          </select>
+        </div>
+        <div class="input-group my-3">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Sera usada</label
+          >
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Escolha...</option>
+            <option value="1">Ano todo</option>
+            <option value="2">Menos inverno</option>
+            <option value="2">Só no verão</option>
+          </select>
+        </div>
+        <div class="input-group my-3">
+          <label class="input-group-text" for="inputGroupSelect01">Uso</label>
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Escolha...</option>
+            <option value="1">Mês todo</option>
+            <option value="2">fim de semana</option>
+          </select>
+        </div>
+        <button class="btn btn-primary">SALVAR</button>
+      </div>
+    </div>
+  </div>
+</main>
