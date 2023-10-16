@@ -50,11 +50,11 @@
         align-items: flex-start; 
         flex-direction: row;
         flex-wrap: wrap;  
-        max-width: 500px; 
         margin: 0 auto; 
         
         .owner {
-            margin: 0 20px;  
+            //argin: 5 20px;  
+            margin-bottom: 1rem;
         }
         .owner-image-container {
             width: 100px;  
