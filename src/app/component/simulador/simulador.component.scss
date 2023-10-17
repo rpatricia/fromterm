@@ -1,65 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 .container {
-  padding: 40px 0;
+  padding: 30px 0;
+  font-family: 'Roboto', sans-serif;
 
   .piscina {
-    .form-title {
-      color: #0056b3;
-      border-bottom: 4px solid #0056b3;
-      padding: 10px 0;
-      display: inline-block;
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 25px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
     .custom-card {
-      border-radius: 20px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-      background: #f7f9fc;
-      transition: transform 0.2s;
+      max-width: 550px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      background: linear-gradient(135deg, #f5f7fa, #ffffff);
+      transition: transform 0.2s, box-shadow 0.2s;
+      overflow: hidden;
 
       &:hover {
         transform: translateY(-5px);
+        box-shadow: 0 7px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .card-header {
+        background-color: #0056b3;
+        color: #ffffff;
+        padding: 15px 20px;
+        text-align: center;
+
+        .form-title {
+          font-weight: 700;
+          font-size: 1.6rem;
+          color: #007bff;
+          margin-bottom: 0;
+          text-shadow: 0 1px 2px rgba(9, 9, 9, 0.2);
+        }
       }
 
       .card-body {
-        padding: 30px;
+        padding: 20px;
 
         .form-label {
-          font-weight: 600;
+          font-weight: 500;
           color: #333;
-          margin-bottom: 10px;
+          margin-bottom: 5px;
         }
 
         .form-control,
         .form-select {
-          border-radius: 10px;
-          border: 2px solid #d1d5db;
-          padding: 10px 15px;
-          font-size: 1.05rem;
-          transition: all 0.2s;
-          margin-top: 5px;
+          border-radius: 6px;
+          border: 1px solid #d1d5db;
+          padding: 8px 12px;
+          font-size: 0.95rem;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          margin-top: 2px;
 
           &:focus {
             border-color: #007bff;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
           }
         }
 
         .custom-submit-btn {
           width: 100%;
-          border-radius: 10px;
+          border-radius: 6px;
           background-color: #0056b3;
           color: #ffffff;
           border: none;
-          padding: 15px 0;
+          padding: 10px 0;
           font-weight: 600;
-          margin-top: 20px;
-          transition: background-color 0.2s;
+          margin-top: 15px;
+          transition: background-color 0.2s, transform 0.2s;
 
           &:hover {
             background-color: #003f8a;
+            transform: translateY(-3px);
           }
         }
       }
@@ -69,10 +81,10 @@
   .recommendation {
     font-weight: 600;
     color: #004a8d;
-    border-top: 3px solid #0056b3;
+    border-top: 2px solid #0056b3;
     padding-top: 20px;
     font-size: 1.5rem;
     margin-top: 30px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 }
