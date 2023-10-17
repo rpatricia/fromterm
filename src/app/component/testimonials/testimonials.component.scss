@@ -1,82 +1,92 @@
 .testimonial-carousel {
-    position: relative;
-    background-color: transparent; // Removendo a cor de fundo
-    padding: 20px;
-    max-width: 700px;
-    margin: 40px auto;
-    color: #b0b0b0;
-   
+    padding: 20px 0;
+    border-radius: 10px;
 
-    .carousel-inner {
-        position: relative;
-        border-radius: 25px; // Aumentando o raio para torná-lo mais arredondado
-        padding: 20px;
-        background-color: #1E1E1E;
-        text-align: center;
+    // Estilização do container principal do carrossel
+    #testimonialCarousel {
+        max-width: 600px;
+        margin: 0 auto;
+        color: #b0b0b0;
 
-        .balloon-tail {
-            position: absolute;
-            width: 30px;
-            height: 15px;
-            background-color: #1E1E1E;
-            z-index: 1; // Colocando atrás do conteúdo principal
-            bottom: -15px; // Ajustando a posição da cauda
-            left: 50%; // Centralizando a cauda
-            transform: translateX(-50%); // Usando transform para centralizar
-            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        // Estilização do conteúdo interno do carrossel
+        .carousel-inner {
+            padding: 20px;
+            background-color: #A9A9A9;  // Fundo do card alterado para cinza
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+
+            // Estilização de cada item do carrossel
+            .carousel-item {
+                transition: opacity 0.5s;
+
+                h4 {
+                    color: #007BFF;
+                    font-size: 1.5rem;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                }
+
+                p {
+                    font-style: italic;
+                    font-size: 1rem;
+                    margin-bottom: 10px;
+                    line-height: 1.4;
+                    color: #FA2B32;
+                }
+
+                small {
+                    display: block;
+                    font-size: 0.9rem;
+                    color: #b0b0b0;
+                    margin-top: 8px;
+                }
+            }
+
+            // Estilização dos controles do carrossel (setas)
+            .carousel-control-prev,
+            .carousel-control-next {
+                top: 50%;
+                transform: translateY(-50%);
+                width: 40px;
+                z-index: 10;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            // Estilização dos ícones das setas
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+            }
         }
     }
 
-    h4 {
-        color: #fff;
-        font-size: 1.4rem;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #b0b0b0;
-        padding-bottom: 10px;
-    }
-
-    p {
-        font-style: italic;
-        font-size: 1.1rem;
-        margin-bottom: 15px;
-        line-height: 1.5;
-        color: rgb(245, 31, 31);
-    }
-
-    small {
-        font-size: 0.95rem;
-        color: #b0b0b0;
-    }
-
-    .carousel-control-prev, .carousel-control-next {
-        top: 50%;
-        transform: translateY(-50%);
-        width: 50px;
-        z-index: 10;
-    }
-
-    .carousel-control-prev-icon, .carousel-control-next-icon {
-        filter: invert(1);
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-    }
-
+    // Estilização responsiva para telas menores
     @media (max-width: 768px) {
-        max-width: 90%;
         padding: 15px;
 
-        h4 {
-            font-size: 1.1rem;
-        }
+        #testimonialCarousel {
+            .carousel-inner {
+                padding: 15px;
 
-        p {
-            font-size: 0.95rem;
-        }
+                h4 {
+                    font-size: 1.2rem;
+                }
 
-        small {
-            font-size: 0.85rem;
+                p {
+                    font-size: 0.95rem;
+                }
+
+                small {
+                    font-size: 0.8rem;
+                }
+            }
         }
     }
 }
