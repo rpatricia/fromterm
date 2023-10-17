@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AdminComponent } from './component/admin/admin.component';
 import { BombasDeCalorComponent } from './component/bombas-de-calor/bombas-de-calor.component';
 import { CepSearchComponent } from './component/cep-search/cep-search.component';
 import { AssistenciaTecnicaComponent } from './component/contato/assistencia-tecnica/assistencia-tecnica.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'contato/:subject', component: ContatoComponent },
   { path: 'contato', component: ContatoComponent },
   { path: 'simulador', component: SimuladorComponent },
+  { path: 'admin', component: AdminComponent },
 ];
 
 @NgModule({

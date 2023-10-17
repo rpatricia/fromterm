@@ -31,8 +31,8 @@ export class BombasDeCalorService {
     ) as Observable<BombasDeCalor[]>;
   }
 
-  addBombaDeCalor(value: BombasDeCalor) {
-    addDoc(this.bombasDeCalorCollection, value);
+  async addBombaDeCalor(value: BombasDeCalor): Promise<any> {
+    return addDoc(this.bombasDeCalorCollection, value);
   }
 
   async getAll() {

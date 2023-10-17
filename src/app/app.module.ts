@@ -9,6 +9,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminComponent } from './component/admin/admin.component';
 import { BombasDeCalorComponent } from './component/bombas-de-calor/bombas-de-calor.component';
 import { CepSearchComponent } from './component/cep-search/cep-search.component';
 import { AssistenciaTecnicaComponent } from './component/contato/assistencia-tecnica/assistencia-tecnica.component';
@@ -27,6 +28,7 @@ import { TestimonialsComponent } from './component/testimonials/testimonials.com
 import { environment } from './environments/environment';
 import { BombasDeCalorService } from './services/bombas-de-calor.service';
 import { SimuladorService } from './services/simulador.service';
+import { AppToastService } from './services/toast.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { SimuladorService } from './services/simulador.service';
     SejaUmaRevendaComponent,
     CepSearchComponent,
     SimuladorComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import { SimuladorService } from './services/simulador.service';
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [BombasDeCalorService, SimuladorService],
+  providers: [BombasDeCalorService, SimuladorService, AppToastService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

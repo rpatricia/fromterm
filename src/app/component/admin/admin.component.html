@@ -1,0 +1,124 @@
+<ngb-toast
+  *ngFor="let toast of toastService.toasts"
+  [header]="toast.header"
+  [class]="toast.type"
+  [autohide]="true"
+  [delay]="toast.delay || 5000"
+  (hiddden)="toastService.remove(toast)"
+  >{{ toast.body }}</ngb-toast
+>
+
+<main class="container">
+  <form class="bg-dark p-3 mb-3">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="Bomba de Falor FT-"
+        [(ngModel)]="bombaInsert.name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="tipoPiscina" class="form-label">Aberta/Fechado</label>
+      <select
+        class="form-select"
+        id="tipoPiscina"
+        name="tipoPiscina"
+        [(ngModel)]="aberta"
+      >
+        <option value="0">Fechada</option>
+        <option value="1">Aberta</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="value" class="form-label">Valor</label>
+      <input
+        type="number"
+        class="form-control"
+        id="value"
+        name="value"
+        [(ngModel)]="bombaInsert.value"
+      />
+    </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-danger me-2" (click)="clear()">Cancelar</button>
+      <button class="btn btn-primary" (click)="insert()">Salvar</button>
+    </div>
+  </form>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Bomba de Calor</th>
+        <th scope="col">Aberta/Fechada</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bomba of bombas; let i = index">
+        <th scope="row">{{ bomba.id }}</th>
+        <td>
+          <div *ngIf="!isEdit || i !== editedRowIndex">
+            {{ bomba.name }}
+          </div>
+          <div *ngIf="isEdit && i === editedRowIndex">
+            <input type="text" [(ngModel)]="bombaSelecionada.name" />
+          </div>
+        </td>
+        <td>
+          <div *ngIf="!isEdit || i !== editedRowIndex">
+            {{ bombaAbertaOuFechada(bomba.aberta) }}
+          </div>
+          <div *ngIf="isEdit && i === editedRowIndex">
+            <select type="text" [(ngModel)]="bombaAbertaSelect">
+              <option value="0">Fechada</option>
+              <option value="1">Aberta</option>
+            </select>
+          </div>
+        </td>
+        <td>
+          <div *ngIf="!isEdit || i !== editedRowIndex">
+            {{ bomba.value }}
+          </div>
+          <div *ngIf="isEdit && i === editedRowIndex">
+            <input type="number" [(ngModel)]="bombaSelecionada.value" />
+          </div>
+        </td>
+        <td>
+          <button
+            class="edit-btn"
+            (click)="editLine(i, bomba)"
+            *ngIf="i !== editedRowIndex"
+          >
+            <i class="bi-pencil-square"></i>
+          </button>
+          <button
+            class="edit-btn"
+            *ngIf="i !== editedRowIndex"
+            (click)="delete(bomba)"
+          >
+            <i class="bi-trash"></i>
+          </button>
+          <button
+            class="edit-btn"
+            *ngIf="isEdit && i === editedRowIndex"
+            (click)="saveLine(i)"
+          >
+            <i class="bi-check-square"></i>
+          </button>
+          <button
+            class="edit-btn"
+            *ngIf="isEdit && i === editedRowIndex"
+            (click)="cancelSaveLine(i)"
+          >
+            <i class="bi-x-lg"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
