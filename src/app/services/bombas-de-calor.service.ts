@@ -61,7 +61,7 @@ export class BombasDeCalorService {
     if (postSnapshot.exists()) {
       return updateDoc(postRef, postData);
     } else {
-      throw new Error('Post não encontrado');
+      throw new Error('Bomba de Calor não encontrada');
     }
   }
 
@@ -76,7 +76,7 @@ export class BombasDeCalorService {
     if (postSnapshot.exists()) {
       return deleteDoc(postRef);
     } else {
-      throw new Error('Post não encontrado');
+      throw new Error('Bomba de Calor não encontrada');
     }
   }
 }
