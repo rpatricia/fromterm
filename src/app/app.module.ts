@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HighchartsChartModule } from 'highcharts-angular';
 
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BombasDeCalorComponent } from './component/bombas-de-calor/bombas-de-calor.component';
@@ -22,6 +24,9 @@ import { OndeComprarComponent } from './component/onde-comprar/onde-comprar.comp
 import { RepresentantesComponent } from './component/representantes/representantes.component';
 import { SimuladorComponent } from './component/simulador/simulador.component';
 import { TestimonialsComponent } from './component/testimonials/testimonials.component';
+import { environment } from './environments/environment';
+import { BombasDeCalorService } from './services/bombas-de-calor.service';
+import { SimuladorService } from './services/simulador.service';
 
 @NgModule({
   declarations: [
@@ -50,8 +55,10 @@ import { TestimonialsComponent } from './component/testimonials/testimonials.com
     HttpClientModule,
     HighchartsChartModule,
     NgbDropdownModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [BombasDeCalorService, SimuladorService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
