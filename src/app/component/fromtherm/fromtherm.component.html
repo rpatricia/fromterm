@@ -2,16 +2,16 @@
   <!-- Conteúdo centralizado -->
   <div class="content-container">
 
-    <!-- Foto ilustrando a Fromtherm -->
-
+    <!-- Vídeo ilustrando a Fromtherm -->
     <section [ngClass]="{'expanded': showImageSection === 'expanded', 'minimized': showImageSection === 'minimized'}"
       class="fromtherm-image-section">
       <button (click)="toggleSection('image')" class="btn btn-image">
-        <i class="bi bi-image"></i> Foto ilustrando a Fromtherm
+        <i class="bi bi-video"></i> Vídeo ilustrando a Fromtherm
       </button>
-      <img [src]="getCurrentImage()" alt="Fromtherm - Família de Máquinas" (click)="changeImage()">
-      <p *ngIf="showImageSection === 'expanded'">Foto ilustrando a Fromtherm. Clique para mudar a imagem.</p>
-
+      <video [src]="getCurrentVideo()" controls (click)="changeVideo()" width="100%">
+        Seu navegador não suporta a tag de vídeo.
+      </video>
+      <p *ngIf="showImageSection === 'expanded'">Vídeo ilustrando a Fromtherm. Clique para mudar o vídeo.</p>
     </section>
 
     <!-- Texto sobre a Fromtherm -->
@@ -31,7 +31,6 @@
           as cinco regiões brasileiras. Em 2010, consolidou-se no mercado brasileiro como a única fabricante nacional
           exclusiva de bombas de calor.</span>
       </p>
-
     </section>
 
     <!-- Linha do tempo mostrando o crescimento da empresa -->
@@ -40,20 +39,18 @@
       <button (click)="toggleSection('timeline')" class="btn btn-timeline">
         <i class="bi bi-calendar3"></i> Linha do Tempo
       </button>
-      <h2 *ngIf="showTimeline === 'expanded'"></h2>
+      <h2 *ngIf="showTimeline === 'expanded'">Crescimento da Fromtherm ao longo dos anos</h2>
       <ng-container *ngIf="showTimeline === 'expanded'">
         <div *ngFor="let event of timelineEvents" class="timeline-point">
           <span class="year">{{ event.year }}</span>
           <p>{{ event.event }}</p>
         </div>
       </ng-container>
-
     </section>
 
     <!-- Seção dos Proprietários e Colaboradores -->
     <section [ngClass]="{'expanded': showOwners === 'expanded', 'minimized': showOwners === 'minimized'}"
       class="owners-section">
-      <h2 *ngIf="showOwners === 'expanded'"></h2>
       <button (click)="toggleSection('owners')" class="btn btn-owners">
         <i class="bi bi-person"></i> Proprietários
       </button>
@@ -72,7 +69,6 @@
           <p>Priscila</p>
         </div>
       </ng-container>
-
     </section>
 
     <!-- Mapa com regiões do Brasil -->
@@ -81,9 +77,7 @@
       <button (click)="toggleSection('map')" class="btn btn-map">
         <i class="bi bi-map"></i> Presença no Brasil
       </button>
-      <h2 *ngIf="showMapSection === 'expanded'"></h2>
       <img *ngIf="showMapSection === 'expanded'" src="https://via.placeholder.com/500" alt="Mapa do Brasil">
-
     </section>
 
     <!-- Gráfico do crescimento da empresa -->
@@ -98,8 +92,6 @@
         </highcharts-chart>
         <p>Estamos no mercado há {{ yearsSinceFoundation }} anos!</p>
       </ng-container>
-
     </section>
-
   </div>
 </div>

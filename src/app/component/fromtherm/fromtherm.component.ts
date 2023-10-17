@@ -7,71 +7,82 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./fromtherm.component.scss']
 })
 export class FromthermComponent {
-  showTimeline: string = 'expanded';
-  showFullText: boolean = false;
-  showOwners: string = 'expanded';
-  showImageSection: string = 'expanded';
-  showTextSection: string = 'expanded';
-  showMapSection: string = 'expanded';
-  showChartSection: string = 'expanded';
-  foundationYear: number = 2020;
-  currentYear: number = new Date().getFullYear();
-  yearsSinceFoundation: number = this.currentYear - this.foundationYear;
-  imageList: string[] = ["https://picsum.photos/900/400", "https://picsum.photos/901/400", "https://picsum.photos/902/400"];
-  currentImageIndex: number = 0;
-  lastClickedButton: string = '';  
+    showTimeline: string = 'expanded';
+    showFullText: boolean = false;
+    showOwners: string = 'expanded';
+    showImageSection: string = 'expanded';
+    showTextSection: string = 'expanded';
+    showMapSection: string = 'expanded';
+    showChartSection: string = 'expanded';
+    foundationYear: number = 2020;
+    currentYear: number = new Date().getFullYear();
+    yearsSinceFoundation: number = this.currentYear - this.foundationYear;
+    
+    // Lista de vídeos
+    videoList: string[] = [
+      
+        "assets/videos/1.mp4",
+        "assets/videos/2 - CICLO AQUECIMENTO PISCINA 2022.mp4",
+        "assets/videos/3 - CICLO AQUECIMENTO BANHO 2022.mp4",
+        "assets/videos/5 - PAINEIS DESLOCADOS 2022.mp4",
+        "assets/videos/8 - DEGELO GÁS QUENTE 2022.mp4",
+        "assets/videos/9 - INSTALAÇÃO ELÉTRICA HIDRÁULICA 2022.mp4",
+        "assets/videos/12 - PRINCIPIO FUNCIONAMENTO 2D.mp4",
+        "assets/videos/17 - PRINCIPIO FUNCIONAMENTO 3D.mp4"
+    ];
+    currentVideoIndex: number = 0;
 
-  timelineEvents = [
-    { year: 2020, event: "Fundação da Fromtherm." },
-    { year: 2021, event: "Lançamento do primeiro produto principal." },
-    { year: 2022, event: "Expansão para mercados internacionais." }
-  ];
+    timelineEvents = [
+        { year: 2020, event: "Fundação da Fromtherm." },
+        { year: 2021, event: "Lançamento do primeiro produto principal." },
+        { year: 2022, event: "Expansão para mercados internacionais." }
+    ];
 
-  Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
-    title: {
-      text: 'Crescimento ao Longo dos Anos'
-    },
-    xAxis: {
-      categories: ['2020', '2021', '2022', '2023']
-    },
-    series: [{
-      type: 'line',
-      name: 'Crescimento da Empresa',
-      data: [50, 150, 300, 500]
-    }]
-  };
-  toggleSection(section: string): void {
-    switch (section) {
-      case 'image':
-        this.showImageSection = this.showImageSection === 'expanded' ? 'minimized' : 'expanded';
-        break;
-      case 'text':
-        this.showTextSection = this.showTextSection === 'expanded' ? 'minimized' : 'expanded';
-        break;
-      case 'timeline':
-        this.showTimeline = this.showTimeline === 'expanded' ? 'minimized' : 'expanded';
-        break;
-      case 'owners':
-        this.showOwners = this.showOwners === 'expanded' ? 'minimized' : 'expanded';
-        break;
-      case 'map':
-        this.showMapSection = this.showMapSection === 'expanded' ? 'minimized' : 'expanded';
-        break;
-      case 'chart':
-        this.showChartSection = this.showChartSection === 'expanded' ? 'minimized' : 'expanded';
-        break;
-      default:
-        break;
+    Highcharts: typeof Highcharts = Highcharts;
+    chartOptions: Highcharts.Options = {
+        title: {
+            text: 'Crescimento ao Longo dos Anos'
+        },
+        xAxis: {
+            categories: ['2020', '2021', '2022', '2023']
+        },
+        series: [{
+            type: 'line',
+            name: 'Crescimento da Empresa',
+            data: [50, 150, 300, 500]
+        }]
+    };
+
+    toggleSection(section: string): void {
+        switch (section) {
+            case 'image':
+                this.showImageSection = this.showImageSection === 'expanded' ? 'minimized' : 'expanded';
+                break;
+            case 'text':
+                this.showTextSection = this.showTextSection === 'expanded' ? 'minimized' : 'expanded';
+                break;
+            case 'timeline':
+                this.showTimeline = this.showTimeline === 'expanded' ? 'minimized' : 'expanded';
+                break;
+            case 'owners':
+                this.showOwners = this.showOwners === 'expanded' ? 'minimized' : 'expanded';
+                break;
+            case 'map':
+                this.showMapSection = this.showMapSection === 'expanded' ? 'minimized' : 'expanded';
+                break;
+            case 'chart':
+                this.showChartSection = this.showChartSection === 'expanded' ? 'minimized' : 'expanded';
+                break;
+            default:
+                break;
+        }
     }
-}
 
+    changeVideo(): void {
+        this.currentVideoIndex = (this.currentVideoIndex + 1) % this.videoList.length;
+    }
 
-  changeImage(): void {
-    this.currentImageIndex = (this.currentImageIndex + 1) % this.imageList.length;
-  }
-
-  getCurrentImage(): string {
-    return this.imageList[this.currentImageIndex];
-  }
+    getCurrentVideo(): string {
+        return this.videoList[this.currentVideoIndex];
+    }
 }
