@@ -1,11 +1,17 @@
 import { Injectable, inject } from '@angular/core';
 import {
   CollectionReference,
+  DocumentData,
+  DocumentReference,
   Firestore,
   addDoc,
   collection,
   collectionData,
+  deleteDoc,
+  doc,
+  getDoc,
   getDocs,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { BombasDeCalor } from '../models/BombasDeCalor.model';
@@ -41,5 +47,36 @@ export class BombasDeCalorService {
       });
       return bombasDeCalor;
     });
+  }
+
+  async update(value: BombasDeCalor): Promise<void> {
+    const postRef: DocumentReference<DocumentData> = doc(
+      this.firestore,
+      `bombasDeCalor/${value.id}`
+    );
+
+    const { id, ...postData } = value;
+    const postSnapshot = await getDoc(postRef);
+
+    if (postSnapshot.exists()) {
+      return updateDoc(postRef, postData);
+    } else {
+      throw new Error('Post não encontrado');
+    }
+  }
+
+  async delete(id: string): Promise<void> {
+    const postRef: DocumentReference<DocumentData> = doc(
+      this.firestore,
+      `bombasDeCalor/${id}`
+    );
+
+    const postSnapshot = await getDoc(postRef);
+
+    if (postSnapshot.exists()) {
+      return deleteDoc(postRef);
+    } else {
+      throw new Error('Post não encontrado');
+    }
   }
 }
