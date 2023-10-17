@@ -2,17 +2,30 @@
   <!-- Conteúdo centralizado -->
   <div class="content-container">
 
-    <!-- Vídeo ilustrando a Fromtherm -->
-    <section [ngClass]="{'expanded': showImageSection === 'expanded', 'minimized': showImageSection === 'minimized'}"
-      class="fromtherm-image-section">
-      <button (click)="toggleSection('image')" class="btn btn-image">
-        <i class="bi bi-video"></i> Vídeo ilustrando a Fromtherm
-      </button>
-      <video [src]="getCurrentVideo()" controls (click)="changeVideo()" width="100%">
-        Seu navegador não suporta a tag de vídeo.
-      </video>
-      <p *ngIf="showImageSection === 'expanded'">Vídeo ilustrando a Fromtherm. Clique para mudar o vídeo.</p>
-    </section>
+   <!-- Vídeo ilustrando a Fromtherm -->
+   <section [ngClass]="{'expanded': showImageSection === 'expanded', 'minimized': showImageSection === 'minimized'}"
+   class="fromtherm-image-section">
+   <button (click)="toggleSection('image')" class="btn btn-image">
+     <i class="bi bi-video"></i> Vídeo ilustrando a Fromtherm
+   </button>
+
+   <!-- Botão anterior -->
+   <button (click)="previousVideo()" class="video-nav-btn video-nav-prev">
+     <i class="bi bi-arrow-left"></i>
+   </button>
+   
+  <!-- Vídeo com autoplay -->
+<video #videoPlayer [src]="getCurrentVideo()" controls (click)="changeVideo()" width="100%" autoplay loop (loadedmetadata)="muteVideo()">
+  Seu navegador não suporta a tag de vídeo.
+</video>
+   
+   <!-- Botão próximo -->
+   <button (click)="nextVideo()" class="video-nav-btn video-nav-next">
+     <i class="bi bi-arrow-right"></i>
+   </button>
+   
+   <p *ngIf="showImageSection === 'expanded'">Vídeo ilustrando a Fromtherm. Clique para mudar o vídeo.</p>
+ </section>
 
     <!-- Texto sobre a Fromtherm -->
     <section [ngClass]="{'expanded': showTextSection === 'expanded', 'minimized': showTextSection === 'minimized'}"
@@ -77,7 +90,7 @@
       <button (click)="toggleSection('map')" class="btn btn-map">
         <i class="bi bi-map"></i> Presença no Brasil
       </button>
-      <img *ngIf="showMapSection === 'expanded'" src="https://via.placeholder.com/500" alt="Mapa do Brasil">
+      <img *ngIf="showMapSection === 'expanded'" src="../../../assets/onde estamos.png" alt="Mapa do Brasil">
     </section>
 
     <!-- Gráfico do crescimento da empresa -->

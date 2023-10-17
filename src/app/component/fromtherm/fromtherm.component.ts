@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -6,7 +6,9 @@ import * as Highcharts from 'highcharts';
   templateUrl: './fromtherm.component.html',
   styleUrls: ['./fromtherm.component.scss']
 })
-export class FromthermComponent {
+export class FromthermComponent implements AfterViewInit {
+    @ViewChild('videoPlayer') videoPlayer!: ElementRef;
+
     showTimeline: string = 'expanded';
     showFullText: boolean = false;
     showOwners: string = 'expanded';
@@ -18,9 +20,7 @@ export class FromthermComponent {
     currentYear: number = new Date().getFullYear();
     yearsSinceFoundation: number = this.currentYear - this.foundationYear;
     
-    // Lista de vídeos
     videoList: string[] = [
-      
         "assets/videos/1.mp4",
         "assets/videos/2 - CICLO AQUECIMENTO PISCINA 2022.mp4",
         "assets/videos/3 - CICLO AQUECIMENTO BANHO 2022.mp4",
@@ -84,5 +84,25 @@ export class FromthermComponent {
 
     getCurrentVideo(): string {
         return this.videoList[this.currentVideoIndex];
+    }
+
+    previousVideo(): void {
+        if (this.currentVideoIndex === 0) {
+            this.currentVideoIndex = this.videoList.length - 1;
+        } else {
+            this.currentVideoIndex--;
+        }
+    }
+
+    nextVideo(): void {
+        this.currentVideoIndex = (this.currentVideoIndex + 1) % this.videoList.length;
+    }
+
+    muteVideo(): void {
+        this.videoPlayer.nativeElement.muted = true;
+    }
+
+    ngAfterViewInit(): void {
+        this.muteVideo();
     }
 }

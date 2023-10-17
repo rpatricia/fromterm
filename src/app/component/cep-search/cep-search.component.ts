@@ -9,7 +9,8 @@ import { Address } from '../../models/address.interface';
   styleUrls: ['./cep-search.component.scss']
 })
 export class CepSearchComponent implements OnInit {
-  componentType!: 'ondeComprar' | 'representantes';
+  // Valor padrão para componentType
+  componentType: 'ondeComprar' | 'representantes' = 'ondeComprar';
 
   cep!: string;
   address!: Address | null;
@@ -17,9 +18,13 @@ export class CepSearchComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.componentType = this.route.snapshot.paramMap.get('type') as 'ondeComprar' | 'representantes';
-    if (!this.componentType) {
-      throw new Error('O atributo "componentType" deve ser definido.');
+    const routeType = this.route.snapshot.paramMap.get('type');
+    // Verificação para garantir que o valor da rota seja um dos valores esperados
+    if (routeType === 'ondeComprar' || routeType === 'representantes') {
+      this.componentType = routeType;
+    } else {
+      // Se o valor não for válido, ele usará o valor padrão e mostrará um aviso no console
+      console.warn('Tipo de componente inválido fornecido na rota. Usando o padrão: ondeComprar.');
     }
   }
 
