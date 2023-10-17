@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -16,21 +15,16 @@ export class NavbarComponent {
     { id: 'onde-comprar', label: 'Onde Comprar', icon: 'bi-shop' },
     { id: 'representantes', label: 'Representantes', icon: 'bi-person' },
     { id: 'assistencia-tecnica', label: 'Assistência Técnica', icon: 'bi-tools' },
-    { id: 'contato', label: 'Contato', icon: 'bi-envelope' },
-    { id: 'simulador', label: 'Simulador', icon: 'bi-calculator' } // Adicionado o link para "Simulador"
+    { id: 'simulador', label: 'Simulador', icon: 'bi-calculator' }, 
+    { id: 'contato', label: 'Contato', icon: 'bi-envelope' }
   ];
-
-  constructor(private router: Router) {}
 
   toggleMenu(): void {
     this.isMenuCollapsed = !this.isMenuCollapsed;
   }
 
   navigateToSection(sectionId: string): void {
-    if (sectionId === 'assistencia-tecnica') {
-      this.router.navigate(['/contato', 'assistencia-tecnica']);
-    } else {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Se não for "assistencia-tecnica", apenas role para a seção correspondente
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   }
 }
