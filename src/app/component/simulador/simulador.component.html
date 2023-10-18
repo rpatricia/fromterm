@@ -6,64 +6,104 @@
         <h2 class="form-title">Simule aqui para indicação de produto</h2>
       </div>
       <div class="card-body">
-        <!-- Largura -->
-        <div class="mb-3">
-          <label for="largura" class="form-label">Largura (em metros)</label>
-          <input type="number" class="form-control" id="largura" name="largura" placeholder="5m - 20m" [(ngModel)]="dadosPiscina.largura">
-        </div>
 
-        <!-- Comprimento -->
-        <div class="mb-3">
-          <label for="comprimento" class="form-label">Comprimento (em metros)</label>
-          <input type="number" class="form-control" id="comprimento" name="comprimento" placeholder="5m - 20m" [(ngModel)]="dadosPiscina.comprimento">
-        </div>
+        <section class="column">
+          <h3 class="section-title">Informações Gerais sobre a Piscina</h3>
+          <!-- Largura -->
+          <div class="mb-3">
+            <label for="largura" class="form-label">Largura (em metros)</label>
+            <input type="number" class="form-control" id="largura" name="largura" placeholder="5m - 20m" [(ngModel)]="dadosPiscina.largura">
+          </div>
+          <!-- Comprimento -->
+          <div class="mb-3">
+            <label for="comprimento" class="form-label">Comprimento (em metros)</label>
+            <input type="number" class="form-control" id="comprimento" name="comprimento" placeholder="5m - 20m" [(ngModel)]="dadosPiscina.comprimento">
+          </div>
+          <!-- Profundidade -->
+          <div class="mb-3">
+            <label for="profundidade" class="form-label">Profundidade (em metros)</label>
+            <input type="number" class="form-control" id="profundidade" name="profundidade" placeholder="5m - 20m" [(ngModel)]="dadosPiscina.profundidade">
+          </div>
+          <!-- Tipo de piscina -->
+          <div class="mb-3">
+            <label for="tipoPiscina" class="form-label">Sua piscina é</label>
+            <select class="form-select" id="tipoPiscina" name="tipoPiscina" [(ngModel)]="aberta">
+              <option value="0">Fechada</option>
+              <option value="1">Aberta</option>
+            </select>
+          </div>
+        </section>
 
-        <!-- Profundidade -->
-        <div class="mb-3">
-          <label for="profundidade" class="form-label">Profundidade (em metros)</label>
-          <input type="number" class="form-control" id="profundidade" name="profundidade" placeholder="5m - 20m" [(ngModel)]="dadosPiscina.profundidade">
-        </div>
+        <section class="column">
+          <h3 class="section-title">Informações Climáticas</h3>
+          <!-- Velocidade do vento -->
+          <div class="mb-3">
+            <label for="vento" class="form-label">Velocidade do vento</label>
+            <select class="form-select" id="vento" name="vento" [(ngModel)]="dadosPiscina.vento">
+              <option value="1">Nenhum</option>
+              <option value="2">Fraco</option>
+              <option value="3">Moderado</option>
+              <option value="4">Forte</option>
+            </select>
+          </div>
+        </section>
 
-        <!-- Tipo de piscina -->
-        <div class="mb-3">
-          <label for="tipoPiscina" class="form-label">Sua piscina é</label>
-          <select class="form-select" id="tipoPiscina" name="tipoPiscina" [(ngModel)]="aberta">
-            <option value="0">Fechada</option>
-            <option value="1">Aberta</option>
-          </select>
-        </div>
+        <section class="column">
+          <h3 class="section-title">Uso da Piscina</h3>
+          <!-- Uso anual da piscina -->
+          <div class="mb-3">
+            <label for="usoAnual" class="form-label">Será usada</label>
+            <select class="form-select" id="usoAnual" name="usoAnual" [(ngModel)]="dadosPiscina.usoAno">
+              <option value="1">Ano todo</option>
+              <option value="2">Menos inverno</option>
+              <option value="3">Só no verão</option>
+            </select>
+          </div>
+          <!-- Uso mensal da piscina -->
+          <div class="mb-3">
+            <label for="usoMensal" class="form-label">Uso durante o mês</label>
+            <select class="form-select" id="usoMensal" name="usoMensal" [(ngModel)]="dadosPiscina.usoMes">
+              <option value="1">Mês todo</option>
+              <option value="2">Fim de semana</option>
+            </select>
+          </div>
+        </section>
 
-        <!-- Velocidade do vento -->
-        <div class="mb-3">
-          <label for="vento" class="form-label">Velocidade do vento</label>
-          <select class="form-select" id="vento" name="vento" [(ngModel)]="dadosPiscina.vento">
-            <option value="1">Nenhum</option>
-            <option value="2">Fraco</option>
-            <option value="3">Moderado</option>
-            <option value="4">Forte</option>
-          </select>
-        </div>
+        <section class="column">
+          <h3 class="section-title">Temperaturas</h3>
+          <!-- Temperatura no Verão -->
+          <div class="mb-3">
+            <label for="verao" class="form-label">Temperatura no Verão</label>
+            <input type="number" class="form-control" id="verao" name="verao" [(ngModel)]="dadosPiscina.verao">
+          </div>
+          <!-- Temperatura no Inverno -->
+          <div class="mb-3">
+            <label for="inverno" class="form-label">Temperatura no Inverno</label>
+            <input type="number" class="form-control" id="inverno" name="inverno" [(ngModel)]="dadosPiscina.inverno">
+          </div>
+          <!-- Temperatura no Outono -->
+          <div class="mb-3">
+            <label for="outono" class="form-label">Temperatura no Outono</label>
+            <input type="number" class="form-control" id="outono" name="outono" [(ngModel)]="dadosPiscina.outono">
+          </div>
+          <!-- Temperatura na Primavera -->
+          <div class="mb-3">
+            <label for="primevera" class="form-label">Temperatura na Primavera</label>
+            <input type="number" class="form-control" id="primevera" name="primevera" [(ngModel)]="dadosPiscina.primevera">
+          </div>
+          <!-- Temperatura Inicial -->
+          <div class="mb-3">
+            <label for="tempInicial" class="form-label">Temperatura Inicial</label>
+            <input type="number" class="form-control" id="tempInicial" name="tempInicial" [(ngModel)]="dadosPiscina.tempInicial">
+          </div>
+          <!-- Temperatura Desejada -->
+          <div class="mb-3">
+            <label for="tempDesejada" class="form-label">Temperatura Desejada</label>
+            <input type="number" class="form-control" id="tempDesejada" name="tempDesejada" [(ngModel)]="dadosPiscina.tempDesejada">
+          </div>
+          <button class="btn btn-primary custom-submit-btn" (click)="submit()">SALVAR</button>
+        </section>
 
-        <!-- Uso anual da piscina -->
-        <div class="mb-3">
-          <label for="usoAnual" class="form-label">Será usada</label>
-          <select class="form-select" id="usoAnual" name="usoAnual" [(ngModel)]="dadosPiscina.usoAno">
-            <option value="1">Ano todo</option>
-            <option value="2">Menos inverno</option>
-            <option value="3">Só no verão</option>
-          </select>
-        </div>
-
-        <!-- Uso mensal da piscina -->
-        <div class="mb-3">
-          <label for="usoMensal" class="form-label">Uso durante o mês</label>
-          <select class="form-select" id="usoMensal" name="usoMensal" [(ngModel)]="dadosPiscina.usoMes">
-            <option value="1">Mês todo</option>
-            <option value="2">Fim de semana</option>
-          </select>
-        </div>
-
-        <button class="btn btn-primary custom-submit-btn" (click)="submit()">SALVAR</button>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
 
   .piscina {
     .custom-card {
-      max-width: 550px;
+      max-width: 800px;
       margin: 0 auto;
       border-radius: 10px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -36,42 +36,65 @@
 
       .card-body {
         padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
 
-        .form-label {
-          font-weight: 500;
-          color: #333;
-          margin-bottom: 5px;
-        }
+        .column {
+          flex: 1;
+          max-width: 48%;
+          padding: 0 10px;
 
-        .form-control,
-        .form-select {
-          border-radius: 6px;
-          border: 1px solid #d1d5db;
-          padding: 8px 12px;
-          font-size: 0.95rem;
-          transition: border-color 0.2s, box-shadow 0.2s;
-          margin-top: 2px;
-
-          &:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+          .section-title {
+            font-size: 1.3rem;
+            color: #0056b3;
+            font-weight: 600;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 5px;
           }
-        }
 
-        .custom-submit-btn {
-          width: 100%;
-          border-radius: 6px;
-          background-color: #0056b3;
-          color: #ffffff;
-          border: none;
-          padding: 10px 0;
-          font-weight: 600;
-          margin-top: 15px;
-          transition: background-color 0.2s, transform 0.2s;
+          .form-label {
+            font-weight: 500;
+            color: #333;
+            margin: 10px 0;
+            display: block;
+          }
 
-          &:hover {
-            background-color: #003f8a;
-            transform: translateY(-3px);
+          .form-control,
+          .form-select {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            padding: 8px 12px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+
+            &:focus {
+              border-color: #007bff;
+              box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+            }
+          }
+
+          .mb-3 {
+            margin-bottom: 20px;
+          }
+
+          .custom-submit-btn {
+            width: 100%;
+            border-radius: 6px;
+            background-color: #0056b3;
+            color: #ffffff;
+            border: none;
+            padding: 10px 0;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.2s, transform 0.2s;
+
+            &:hover {
+              background-color: #003f8a;
+              transform: translateY(-3px);
+            }
           }
         }
       }
