@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 .container {
   padding: 20px 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   max-width: 1000px;
   margin: 0 auto;
 
@@ -37,12 +37,16 @@
 
       .card-body {
         padding: 15px;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+        // display: flex;
+        // flex-wrap: wrap;
+        max-width: 100%;
+        // justify-content: space-between;
         gap: 15px;
 
         .column {
-          flex: 1;
+          // flex: 1 1 21rem;
           padding: 0 5px;
 
           .section-title {
@@ -51,7 +55,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             border-bottom: 1px solid #d1d5db;
-            padding-bottom: 4px;
+            padding-bottom: 24px;
           }
 
           .form-label {
@@ -111,6 +115,14 @@
     margin-top: 25px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
+  .btn-content {
+    padding: 20px;
+    .btn {
+      display: block;
+      margin: 0 auto;
+      width: 45%;
+    }
+  }
 
   @media (max-width: 768px) {
     .card-body {
@@ -121,5 +133,12 @@
         margin-bottom: 15px;
       }
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100% !important;
+
   }
 }
