@@ -1,58 +1,91 @@
 <div class="fromtherm-container">
   <!-- Conteúdo centralizado -->
   <div class="content-container">
+    <!-- Vídeo ilustrando a Fromtherm -->
+    <section
+      [ngClass]="{
+        expanded: showImageSection === 'expanded',
+        minimized: showImageSection === 'minimized'
+      }"
+      class="fromtherm-image-section"
+    >
+      <button (click)="toggleSection('image')" class="btn btn-image">
+        <i class="bi bi-video"></i> Vídeo ilustrando a Fromtherm
+      </button>
 
-   <!-- Vídeo ilustrando a Fromtherm -->
-   <section [ngClass]="{'expanded': showImageSection === 'expanded', 'minimized': showImageSection === 'minimized'}"
-   class="fromtherm-image-section">
-   <button (click)="toggleSection('image')" class="btn btn-image">
-     <i class="bi bi-video"></i> Vídeo ilustrando a Fromtherm
-   </button>
+      <!-- Botão anterior -->
+      <button (click)="previousVideo()" class="video-nav-btn video-nav-prev">
+        <i class="bi bi-arrow-left"></i>
+      </button>
 
-   <!-- Botão anterior -->
-   <button (click)="previousVideo()" class="video-nav-btn video-nav-prev">
-     <i class="bi bi-arrow-left"></i>
-   </button>
-   
-  <!-- Vídeo com autoplay -->
-<video #videoPlayer [src]="getCurrentVideo()" controls (click)="changeVideo()" width="100%" autoplay loop (loadedmetadata)="muteVideo()">
-  Seu navegador não suporta a tag de vídeo.
-</video>
-   
-   <!-- Botão próximo -->
-   <button (click)="nextVideo()" class="video-nav-btn video-nav-next">
-     <i class="bi bi-arrow-right"></i>
-   </button>
-   
-   <p *ngIf="showImageSection === 'expanded'">Vídeo ilustrando a Fromtherm. Clique para mudar o vídeo.</p>
- </section>
+      <!-- Vídeo com autoplay -->
+      <video
+        #videoPlayer
+        [src]="getCurrentVideo()"
+        controls
+        (click)="changeVideo()"
+        width="100%"
+        autoplay
+        loop
+        (loadedmetadata)="muteVideo()"
+      >
+        Seu navegador não suporta a tag de vídeo.
+      </video>
+
+      <!-- Botão próximo -->
+      <button (click)="nextVideo()" class="video-nav-btn video-nav-next">
+        <i class="bi bi-arrow-right"></i>
+      </button>
+
+      <p *ngIf="showImageSection === 'expanded'">
+        Vídeo ilustrando a Fromtherm. Clique para mudar o vídeo.
+      </p>
+    </section>
 
     <!-- Texto sobre a Fromtherm -->
-    <section [ngClass]="{'expanded': showTextSection === 'expanded', 'minimized': showTextSection === 'minimized'}"
-      class="fromtherm-text-section">
+    <section
+      [ngClass]="{
+        expanded: showTextSection === 'expanded',
+        minimized: showTextSection === 'minimized'
+      }"
+      class="fromtherm-text-section"
+    >
       <button (click)="toggleSection('text')" class="btn btn-text">
         <i class="bi bi-info-circle"></i> Sobre a Fromtherm
       </button>
       <h2 *ngIf="showTextSection === 'expanded'">Sobre a Fromtherm</h2>
       <p *ngIf="showTextSection === 'expanded'">
-        A Fromtherm é uma empresa genuinamente brasileira que surgiu em 2004 no mercado de sistemas de aquecimento para
-        piscinas e central de água quente.
-        <span *ngIf="showFullText">Contamos com uma equipe fortalecida de diretores, gestores e conceituados
-          representantes, onde o respeito e o bom relacionamento fazem parte de todas as decisões. A empresa conta
-          também com o apoio de seus colaboradores que compartilham de sua missão e política de qualidade. A Fromtherm
-          iniciou em Santa Catarina e, com confiança e referência, cresceu no mercado brasileiro, expandindo para todas
-          as cinco regiões brasileiras. Em 2010, consolidou-se no mercado brasileiro como a única fabricante nacional
-          exclusiva de bombas de calor.</span>
+        A Fromtherm é uma empresa genuinamente brasileira que surgiu em 2004 no
+        mercado de sistemas de aquecimento para piscinas e central de água
+        quente.
+        <span *ngIf="showFullText"
+          >Contamos com uma equipe fortalecida de diretores, gestores e
+          conceituados representantes, onde o respeito e o bom relacionamento
+          fazem parte de todas as decisões. A empresa conta também com o apoio
+          de seus colaboradores que compartilham de sua missão e política de
+          qualidade. A Fromtherm iniciou em Santa Catarina e, com confiança e
+          referência, cresceu no mercado brasileiro, expandindo para todas as
+          cinco regiões brasileiras. Em 2010, consolidou-se no mercado
+          brasileiro como a única fabricante nacional exclusiva de bombas de
+          calor.</span
+        >
       </p>
     </section>
 
     <!-- Linha do tempo mostrando o crescimento da empresa -->
-    <section [ngClass]="{'expanded': showTimeline === 'expanded', 'minimized': showTimeline === 'minimized'}"
-      class="timeline-section">
+    <section
+      [ngClass]="{
+        expanded: showTimeline === 'expanded',
+        minimized: showTimeline === 'minimized'
+      }"
+      class="timeline-section"
+    >
       <button (click)="toggleSection('timeline')" class="btn btn-timeline">
         <i class="bi bi-calendar3"></i> Linha do Tempo
       </button>
-      <h2 *ngIf="showTimeline === 'expanded'">Crescimento da Fromtherm ao longo dos anos</h2>
+      <h2 *ngIf="showTimeline === 'expanded'">
+        Crescimento da Fromtherm ao longo dos anos
+      </h2>
       <ng-container *ngIf="showTimeline === 'expanded'">
         <div *ngFor="let event of timelineEvents" class="timeline-point">
           <span class="year">{{ event.year }}</span>
@@ -62,22 +95,33 @@
     </section>
 
     <!-- Seção dos Proprietários e Colaboradores -->
-    <section [ngClass]="{'expanded': showOwners === 'expanded', 'minimized': showOwners === 'minimized'}"
-      class="owners-section">
+    <section
+      [ngClass]="{
+        expanded: showOwners === 'expanded',
+        minimized: showOwners === 'minimized'
+      }"
+      class="owners-section"
+    >
       <button (click)="toggleSection('owners')" class="btn btn-owners">
         <i class="bi bi-person"></i> Proprietários
       </button>
       <ng-container *ngIf="showOwners === 'expanded'">
         <div class="owner">
           <div class="owner-image-container">
-            <img src="../../../assets/Imagem Socios/ABEL PADILHA.jpg" alt="Abel">
+            <img
+              src="../../../assets/Imagem Socios/ABEL PADILHA.jpg"
+              alt="Abel"
+            />
           </div>
           <p>Abel</p>
         </div>
 
         <div class="owner">
           <div class="owner-image-container">
-            <img src="../../../assets/Imagem Socios/PRISCILLA STEIN.jpg" alt="Priscila">
+            <img
+              src="../../../assets/Imagem Socios/PRISCILLA STEIN.jpg"
+              alt="Priscila"
+            />
           </div>
           <p>Priscila</p>
         </div>
@@ -85,23 +129,42 @@
     </section>
 
     <!-- Mapa com regiões do Brasil -->
-    <section [ngClass]="{'expanded': showMapSection === 'expanded', 'minimized': showMapSection === 'minimized'}"
-      class="map-section">
+    <section
+      [ngClass]="{
+        expanded: showMapSection === 'expanded',
+        minimized: showMapSection === 'minimized'
+      }"
+      class="map-section"
+    >
       <button (click)="toggleSection('map')" class="btn btn-map">
         <i class="bi bi-map"></i> Presença no Brasil
       </button>
-      <img *ngIf="showMapSection === 'expanded'" src="../../../assets/onde estamos.png" alt="Mapa do Brasil">
+      <div class="image-content">
+        <img
+          *ngIf="showMapSection === 'expanded'"
+          src="../../../assets/onde estamos.png"
+          alt="Mapa do Brasil"
+        />
+      </div>
     </section>
 
     <!-- Gráfico do crescimento da empresa -->
-    <section [ngClass]="{'expanded': showChartSection === 'expanded', 'minimized': showChartSection === 'minimized'}"
-      class="growth-chart-section">
+    <section
+      [ngClass]="{
+        expanded: showChartSection === 'expanded',
+        minimized: showChartSection === 'minimized'
+      }"
+      class="growth-chart-section"
+    >
       <button (click)="toggleSection('chart')" class="btn btn-chart">
         <i class="bi bi-graph-up"></i> Crescimento da Empresa
       </button>
       <ng-container *ngIf="showChartSection === 'expanded'">
-        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
-          style="width: 100%; height: 400px; display: block;">
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [options]="chartOptions"
+          style="width: 100%; height: 400px; display: block"
+        >
         </highcharts-chart>
         <p>Estamos no mercado há {{ yearsSinceFoundation }} anos!</p>
       </ng-container>

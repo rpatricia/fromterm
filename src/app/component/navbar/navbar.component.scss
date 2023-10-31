@@ -5,10 +5,12 @@
     .navbar-brand {
         display: flex;
         align-items: center;
+        max-width: 1005;
 
         img.navbar-logo {
-            width: 150px; // Ajuste o tamanho conforme necessário
-            height: auto;
+            // width: 150px; // Ajuste o tamanho conforme necessário
+            // height: auto;
+            height: 3rem;
             margin-right: 10px; // Espaço entre o logo e outros elementos, se houver
         }
     }
